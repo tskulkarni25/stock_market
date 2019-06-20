@@ -1,0 +1,26 @@
+<p>Stock Market Rates (<%= Date.today %>):<p>
+<br>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>52 Week High</th>
+      <th>Current Rate</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rates.each do |rate| %>
+      <tr>
+        <td><%= link_to rate[:name], rate[:url], target: "_blank" %></td>
+        <td><%= rate[:high_52] %></td>
+        <td><%= rate[:current_rate] %></td>
+        <td><%= rate[:percentage].to_f.round(2) %> % </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<p>Cheers<br>Tushar Kulkarni (TK)</p>
